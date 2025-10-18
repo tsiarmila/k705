@@ -4,60 +4,209 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>K705 — Innovation and Global Services</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- Шрифты -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
   <style>
+    :root {
+      --color-dark: #0D0B21;
+      --color-secondary: #1E293B;
+      --color-accent: #00E0FF;
+      --color-accent2: #7C3AED;
+      --color-text: #F8FAFC;
+      --color-bg: #0D0B21;
+    }
+
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      color: #0F172A;
-      background-color: #F9FAFB;
+      font-family: 'Inter', sans-serif;
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      scroll-behavior: smooth;
     }
+
+    /* HEADER */
     header {
-      background-color: #1E3A8A;
-      color: white;
+      position: sticky;
+      top: 0;
+      background: rgba(13,11,33,0.85);
+      backdrop-filter: blur(10px);
+      color: var(--color-text);
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1rem 2rem;
+      z-index: 10;
     }
     header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
     }
     nav a {
-      color: white;
+      color: var(--color-text);
       text-decoration: none;
       margin: 0 1rem;
       font-weight: 500;
+      transition: opacity 0.3s, color 0.3s;
     }
+    nav a:hover {
+      color: var(--color-accent);
+    }
+
+    /* HERO */
     .hero {
+      position: relative;
       text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, #1E3A8A, #0F172A);
-      color: white;
+      padding: 9rem 2rem 7rem;
+      overflow: hidden;
+      background: linear-gradient(-45deg, #1E293B, #0D0B21, #1E293B, #0D0B21);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
     }
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Floating shapes */
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.5;
+      animation: float 20s ease-in-out infinite;
+    }
+    .shape1 { width: 200px; height: 200px; background: #00E0FF; top: 10%; left: 20%; animation-delay: 0s; }
+    .shape2 { width: 300px; height: 300px; background: #7C3AED; top: 40%; left: 70%; animation-delay: 4s; }
+    .shape3 { width: 250px; height: 250px; background: #00E0FF; top: 70%; left: 10%; animation-delay: 8s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+      50% { transform: translateY(-40px) translateX(20px) scale(1.1); }
+    }
+
     .hero h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.5rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
       margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
     }
     .hero p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      position: relative;
+      z-index: 2;
     }
+
     .btn {
-      background-color: #FACC15;
-      color: #0F172A;
-      padding: 0.8rem 1.5rem;
+      background-color: var(--color-accent);
+      color: var(--color-dark);
+      padding: 0.9rem 1.8rem;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
+      border-radius: 12px;
       font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 0 15px var(--color-accent), 0 0 30px var(--color-accent2);
     }
-    section {
-      padding: 4rem 2rem;
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--color-accent), 0 0 50px var(--color-accent2);
+    }
+
+    /* SVG wave */
+    .wave {
+      position: relative;
+      width: 100%;
+      height: 80px;
+      overflow: hidden;
+      line-height: 0;
+      z-index: 2;
+    }
+    .wave svg {
+      position: relative;
+      display: block;
+      width: calc(150% + 1.3px);
+      height: 80px;
+    }
+
+    #team {
+      padding: 5rem 2rem;
       max-width: 1200px;
       margin: auto;
+      text-align: center;
+    }
+
+    .team-grid {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+
+    .team-member {
+      background: var(--color-secondary);
+      padding: 2rem;
+      border-radius: 16px;
+      max-width: 300px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .team-member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    .team-member h3 {
+      color: var(--color-accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .team-member p {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: var(--color-text);
+    }
+
+    .team-member:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 20px var(--color-accent2);
+    }
+
+    /* Адаптивность */
+    @media (max-width: 600px) {
+      .team-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
     }
     .services {
       display: grid;
@@ -65,46 +214,150 @@
       gap: 2rem;
     }
     .card {
-      background: white;
-      border-radius: 10px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      background: var(--color-secondary);
+      border-radius: 12px;
+      padding: 2rem;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px var(--color-accent2);
     }
     .card h3 {
-      color: #1E3A8A;
+      color: var(--color-accent);
+      font-family: 'Space Grotesk', sans-serif;
     }
+
     footer {
-      background-color: #0F172A;
-      color: white;
+      background-color: var(--color-dark);
+      color: var(--color-text);
       text-align: center;
       padding: 2rem 1rem;
+      font-size: 0.9rem;
     }
-    form {
+
+        /* Контакты */
+    #contact {
+      position: relative;
+      background: linear-gradient(135deg, #0D0B21 0%, #1E293B 100%);
+      border-radius: 20px;
+      padding: 5rem 2rem;
+      overflow: hidden;
+    }
+
+    #contact form {
       display: flex;
       flex-direction: column;
-      max-width: 400px;
-      margin: auto;
+      gap: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      background: var(--color-secondary);
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
     }
-    input, textarea {
-      margin-bottom: 1rem;
-      padding: 0.8rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
+
+    #contact form input,
+    #contact form textarea {
+      background: var(--color-dark);
+      color: var(--color-text);
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      transition: border 0.3s, box-shadow 0.3s;
     }
-    input[type="submit"] {
-      background-color: #1E3A8A;
-      color: white;
-      border: none;
+
+    #contact form input:focus,
+    #contact form textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+      box-shadow: 0 0 10px var(--color-accent);
+    }
+
+    #contact form input[type="submit"] {
+      background: var(--color-accent);
+      color: var(--color-dark);
       font-weight: bold;
       cursor: pointer;
+      border: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 15px var(--color-accent), 0 0 30px var(--color-accent2);
     }
+
+    #contact form input[type="submit"]:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px var(--color-accent), 0 0 50px var(--color-accent2);
+    }
+
+    @media (max-width: 600px) {
+      #contact form {
+        padding: 1.5rem;
+      }
+    }
+
+        /* Наши клиенты */
+    #clients {
+      padding: 5rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .clients-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2rem;
+      align-items: center;
+      justify-items: center;
+      margin-top: 2rem;
+    }
+
+    .client-card {
+      background: var(--color-secondary);
+      padding: 1.5rem;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .client-card img {
+      max-width: 100%;
+      max-height: 60px;
+      object-fit: contain;
+    }
+
+    .client-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3), 0 0 20px var(--color-accent2);
+    }
+
+    /* Адаптивность */
+    @media (max-width: 600px) {
+      .clients-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 1rem;
+      }
+      .client-card {
+        padding: 1rem;
+      }
+    }
+
+
   </style>
 </head>
 <body>
 
   <header>
     <h1>K705</h1>
+<!--    <div class="client-card" data-aos="zoom-in" data-aos-delay="100">-->
+<!--      <img src="logos/k705.png" alt="K705 Logo">-->
+<!--    </div>-->
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -113,51 +366,118 @@
   </header>
 
   <section class="hero">
-    <h2>Innovate. Connect. Deliver.</h2>
-    <p>K705 combines technology and business. We develop websites and applications, and support international trade and logistics projects.</p>
-    <button class="btn">Contact Us</button>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+
+    <h2 data-aos="fade-down">Innovate. Connect. Deliver.</h2>
+    <p data-aos="fade-up">K705 combines technology and business. We develop websites, apps, and global trade solutions for the modern world.</p>
+    <button class="btn" data-aos="zoom-in" id="contact-btn">Contact Us</button>
+
+    <div class="wave">
+      <svg viewBox="0 0 500 150" preserveAspectRatio="none">
+        <path d="M0.00,49.98 C150.00,150.00 349.59,-50.00 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" fill="#0D0B21"></path>
+      </svg>
+    </div>
   </section>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About K705</h2>
-    <p>K705 is a flexible company bridging IT and international business. We help clients build digital products, enter new markets, and expand their opportunities worldwide.</p>
+    <p>K705 is a flexible company bridging IT and international business. We help clients build digital products, enter new markets, and expand opportunities worldwide.</p>
   </section>
 
-  <section id="services">
+  <section id="team" data-aos="fade-up">
+    <h2>Our Leadership</h2>
+    <div class="team-grid">
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+        <img src="images/director.png" alt="CEO Photo">
+        <h3>Andrey Viynskovsky</h3>
+        <p>CEO & Founder</p>
+        <p>Andrey Viynskovsky leads K705 with a vision to bridge technology and global business, bringing over 16 years of experience in IT and international trade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" data-aos="fade-up">
     <h2>Our Services</h2>
     <div class="services">
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="100">
         <h3>Web Development</h3>
         <p>Modern, responsive websites and landing pages that help your business grow and stand out online.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="200">
         <h3>Mobile Applications</h3>
         <p>Cross-platform Android and iOS apps with intuitive UX/UI and strong performance.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="300">
         <h3>Export & Import</h3>
         <p>International trade operations, supply chain management, and establishing reliable business connections.</p>
       </div>
-      <div class="card">
+      <div class="card" data-aos="zoom-in" data-aos-delay="400">
         <h3>Consulting</h3>
         <p>Strategic advice for digital transformation, market entry, and international operations growth.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact">
+  <section id="clients" data-aos="fade-up">
+    <h2>Our Clients</h2>
+    <div class="clients-grid">
+      <div class="client-card" data-aos="zoom-in" data-aos-delay="100">
+        <img src="logos/cognyte.png" alt="Cognyte Logo">
+      </div>
+      <div class="client-card" data-aos="zoom-in" data-aos-delay="200">
+        <img src="logos/verint.png" alt="Verint Logo">
+      </div>
+      <div class="client-card" data-aos="zoom-in" data-aos-delay="300">
+        <img src="logos/rotal-networks.png" alt="Rotal Networks Logo">
+      </div>
+      <div class="client-card" data-aos="zoom-in" data-aos-delay="400">
+        <img src="logos/mer-group.png" alt="Mer Group Logo">
+      </div>
+      <div class="client-card" data-aos="zoom-in" data-aos-delay="500">
+        <img src="logos/fluent-technologies.png" alt="Fluent Technologies Logo">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
     <h2>Contact Us</h2>
     <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Email Address" required>
-      <textarea rows="4" placeholder="Your Message"></textarea>
-      <input type="submit" value="Send Message">
+<!--      <input type="text" placeholder="Your Name" required>-->
+<!--      <input type="email" placeholder="Email Address" required>-->
+<!--      <textarea rows="4" placeholder="Your Message"></textarea>-->
+<!--      <input type="submit" value="Send Message">-->
+
+      <div class="contact-info" data-aos="fade-up" style="text-align:center; margin-top:2rem;">
+      <p>Email: <a href="mailto:viandrey@outlook.com" style="color: var(--color-accent)">viandrey@outlook.com</a></p>
+      <p>Phone: <a href="tel:+38670174267" style="color: var(--color-accent)">+386 701-74-267</a></p>
+      <p>Follow us:
+<!--        <a href="#" style="color: var(&#45;&#45;color-accent); margin:0 0.5rem;">Twitter</a>-->
+        <a href="http://linkedin.com/in/andrey-viynskovsky-26a826346" style="color: var(--color-accent); margin:0 0.5rem;">LinkedIn</a>
+<!--        <a href="#" style="color: var(&#45;&#45;color-accent); margin:0 0.5rem;">Facebook</a>-->
+      </p>
+    </div>
     </form>
   </section>
 
   <footer>
     <p>© 2025 K705. All rights reserved.</p>
   </footer>
+
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script>
+    document.getElementById('contact-btn').addEventListener('click', function() {
+      document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
 
 </body>
 </html>
