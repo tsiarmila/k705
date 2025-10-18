@@ -58,6 +58,31 @@
       color: var(--color-accent);
     }
 
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      header h1 {
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem 1rem;
+        width: 100%;
+      }
+
+      nav a {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+    }
+
     /* HERO */
     .hero {
       position: relative;
@@ -355,9 +380,6 @@
 
   <header>
     <h1>K705</h1>
-<!--    <div class="client-card" data-aos="zoom-in" data-aos-delay="100">-->
-<!--      <img src="logos/k705.png" alt="K705 Logo">-->
-<!--    </div>-->
     <nav>
       <a href="#about">About</a>
       <a href="#services">Services</a>
@@ -396,6 +418,15 @@
         <p>Andrey Viynskovsky leads K705 with a vision to bridge technology and global business, bringing over 16 years of experience in IT and international trade.</p>
       </div>
     </div>
+
+    <div class="team-grid">
+      <div class="team-member" data-aos="zoom-in" data-aos-delay="100">
+        <img src="images/lead_developer.png" alt="Lead developer Photo">
+        <h3>Mila Viynskovsky</h3>
+        <p>Lead Developer</p>
+        <p>As Lead Developer, Mila Viynskovsky oversees the full development lifecycle — from concept to launch — ensuring that every product aligns with client goals and industry best practices.</p>
+      </div>
+    </div>
   </section>
 
   <section id="services" data-aos="fade-up">
@@ -430,12 +461,15 @@
         <img src="logos/verint.png" alt="Verint Logo">
       </div>
       <div class="client-card" data-aos="zoom-in" data-aos-delay="300">
-        <img src="logos/rotal-networks.png" alt="Rotal Networks Logo">
+        <img src="logos/comverse.png" alt="Comverse Technologies Logo">
       </div>
       <div class="client-card" data-aos="zoom-in" data-aos-delay="400">
-        <img src="logos/mer-group.png" alt="Mer Group Logo">
+        <img src="logos/rotal-networks.png" alt="Rotal Networks Logo">
       </div>
       <div class="client-card" data-aos="zoom-in" data-aos-delay="500">
+        <img src="logos/mer-group.png" alt="Mer Group Logo">
+      </div>
+      <div class="client-card" data-aos="zoom-in" data-aos-delay="600">
         <img src="logos/fluent-technologies.png" alt="Fluent Technologies Logo">
       </div>
     </div>
