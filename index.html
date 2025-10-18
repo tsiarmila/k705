@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>K705 — Innovation and Global Services</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      color: #0F172A;
+      background-color: #F9FAFB;
+    }
+    header {
+      background-color: #1E3A8A;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: 500;
+    }
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(135deg, #1E3A8A, #0F172A);
+      color: white;
+    }
+    .hero h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    .btn {
+      background-color: #FACC15;
+      color: #0F172A;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    section {
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .card h3 {
+      color: #1E3A8A;
+    }
+    footer {
+      background-color: #0F172A;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      max-width: 400px;
+      margin: auto;
+    }
+    input, textarea {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    input[type="submit"] {
+      background-color: #1E3A8A;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>K705</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h2>Innovate. Connect. Deliver.</h2>
+    <p>K705 combines technology and business. We develop websites and applications, and support international trade and logistics projects.</p>
+    <button class="btn">Contact Us</button>
+  </section>
+
+  <section id="about">
+    <h2>About K705</h2>
+    <p>K705 is a flexible company bridging IT and international business. We help clients build digital products, enter new markets, and expand their opportunities worldwide.</p>
+  </section>
+
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Modern, responsive websites and landing pages that help your business grow and stand out online.</p>
+      </div>
+      <div class="card">
+        <h3>Mobile Applications</h3>
+        <p>Cross-platform Android and iOS apps with intuitive UX/UI and strong performance.</p>
+      </div>
+      <div class="card">
+        <h3>Export & Import</h3>
+        <p>International trade operations, supply chain management, and establishing reliable business connections.</p>
+      </div>
+      <div class="card">
+        <h3>Consulting</h3>
+        <p>Strategic advice for digital transformation, market entry, and international operations growth.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Email Address" required>
+      <textarea rows="4" placeholder="Your Message"></textarea>
+      <input type="submit" value="Send Message">
+    </form>
+  </section>
+
+  <footer>
+    <p>© 2025 K705. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
